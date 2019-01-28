@@ -15,7 +15,7 @@ export class DemoDefaultComponent implements OnInit {
   constructor(private demoService: DemoService) { }
 
   ngOnInit() {
-    this.getList();
+    // this.getList();
   }
 
   public getList() {

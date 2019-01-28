@@ -1,0 +1,17 @@
+:host /deep/ {
+  table {
+    th {
+      text-align: left;
+    }
+    td {
+      padding: 10px;
+    }
+  }
+  input {
+    outline: none;
+    border: 1px solid #666;
+    &.ng-invalid {
+      border-color: red;
+    }
+  }
+}
