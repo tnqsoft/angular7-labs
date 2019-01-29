@@ -14,4 +14,9 @@
       border-color: red;
     }
   }
+  .control-helper {
+    &.error {
+      color: red;
+    }
+  }
 }

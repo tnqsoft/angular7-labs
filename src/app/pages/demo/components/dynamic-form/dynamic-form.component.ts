@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray, FormControl, AbstractControl } from '@angular/forms';
 
 export interface IMock {
   name: string;
@@ -59,5 +59,9 @@ export class DynamicFormComponent implements OnInit {
     } else {
       console.log(`Item has index ${index} invalid`);
     }
+  }
+
+  getControl(index: number, name: string): AbstractControl {
+    return (<FormArray>this.demoForm.controls.itemDetails.get(index.toString()).get(name));
   }
 }

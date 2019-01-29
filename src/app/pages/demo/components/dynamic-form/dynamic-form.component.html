@@ -17,12 +17,23 @@
       <tr *ngFor="let item of mock; let $index=index" [formGroupName]="$index">
         <td>
             <input type="text" placeholder="Name" formControlName="name" />
+            <div *ngIf="getControl($index, 'name').invalid">
+                <div class="control-helper error" *ngIf="getControl($index, 'name').hasError('required')">Field is required</div>
+                <div class="control-helper error" *ngIf="getControl($index, 'name').hasError('minlength')">Min length is 2</div>
+                <div class="control-helper error" *ngIf="getControl($index, 'name').hasError('maxlength')">Max length is 50</div>
+            </div>
         </td>
         <td>
           <input type="text" placeholder="Age" formControlName="age" />
+          <div *ngIf="getControl($index, 'age').invalid">
+              <div class="control-helper error" *ngIf="getControl($index, 'age').hasError('required')">Field is required</div>
+          </div>
         </td>
         <td>
           <input type="text" placeholder="Gender" formControlName="sex" />
+          <div *ngIf="getControl($index, 'sex').invalid">
+              <div class="control-helper error" *ngIf="getControl($index, 'sex').hasError('required')">Field is required</div>
+          </div>
         </td>
         <td><button type="button" (click)="onAdd($index)">Add</button></td>
       </tr>
